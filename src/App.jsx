@@ -11,7 +11,7 @@ import './AppAdaptive.css'
 
 // navigation page components
 import Home from './components/Home'
-import About from './components/About'
+import Budget from './components/Budget'
 
 
 
@@ -19,12 +19,12 @@ class App extends React.Component {
     render(){
         return(
             <Router>
-                <body>
+                <div>
                     <nav>
                         <div id="h1-div"> <h1> Wedding Checklist Overview </h1> </div>
                         <div className="nav-inner-1">
                             <div className="p-div"> <p> Budget & Guest List </p> </div>
-                            <div className="a-div"> <Link to="/home"> Budget </Link> </div>
+                            <div className="a-div"> <Link to="/budget"> Budget </Link> </div>
                             <div className="a-div"> <Link to="/about"> Guest List </Link> </div>
                         </div>
                         <div className="nav-inner-1">
@@ -50,11 +50,11 @@ class App extends React.Component {
                     <div id="page">
                         <Routes>
                             <Route path="/home" element={<Home></Home>}/>
-                            <Route path="/about" element={<About></About>}/>
+                            <Route path="/budget" element={<Budget></Budget>}/>
                         </Routes>
                     </div>
                     
-                </body>
+                </div>
             </Router>
         );
     }

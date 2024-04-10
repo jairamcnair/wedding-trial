@@ -10,7 +10,7 @@
 
 #page{
     margin-left: 25%; /* has to match nav width */
-    background-color: lightblue;
+    padding: 20px;
 }
 
 nav{
