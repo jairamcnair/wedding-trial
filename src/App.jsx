@@ -12,6 +12,7 @@ import './AppAdaptive.css'
 // navigation page components
 import Home from './components/Home'
 import Budget from './components/Budget'
+import Ledger from './components/Ledger'
 
 
 
@@ -25,6 +26,7 @@ class App extends React.Component {
                         <div className="nav-inner-1">
                             <div className="p-div"> <p> Budget & Guest List </p> </div>
                             <div className="a-div"> <Link to="/budget"> Budget </Link> </div>
+                            <div className="a-div"> <Link to="/ledger"> Ledger </Link> </div>
                             <div className="a-div"> <Link to="/about"> Guest List </Link> </div>
                         </div>
                         <div className="nav-inner-1">
@@ -51,6 +53,7 @@ class App extends React.Component {
                         <Routes>
                             <Route path="/home" element={<Home></Home>}/>
                             <Route path="/budget" element={<Budget></Budget>}/>
+                            <Route path="/ledger" element={<Ledger></Ledger>}/>
                         </Routes>
                     </div>
                     
