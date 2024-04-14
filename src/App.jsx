@@ -13,6 +13,9 @@ import './AppAdaptive.css'
 import Home from './components/Home'
 import Budget from './components/Budget'
 import Ledger from './components/Ledger'
+import Ledger2 from './components/Ledger2'
+import LedgerExpense from './components/LedgerExpense'
+import LedgerDeposit from './components/LedgerDeposit'
 
 
 
@@ -27,7 +30,9 @@ class App extends React.Component {
                             <div className="p-div"> <p> Budget & Guest List </p> </div>
                             <div className="a-div"> <Link to="/budget"> Budget </Link> </div>
                             <div className="a-div"> <Link to="/ledger"> Ledger </Link> </div>
-                            <div className="a-div"> <Link to="/about"> Guest List </Link> </div>
+                            <div className="a-div"> <Link to="/ledger2"> Ledger2 </Link> </div>
+                            <div className="a-div"> <Link to="/ledgerExpense"> Ledger Expense </Link> </div>
+                            <div className="a-div"> <Link to="/ledgerDeposit"> Ledger Deposit </Link> </div>
                         </div>
                         <div className="nav-inner-1">
                             <div className="p-div"> <p> Facility + Food </p> </div>
@@ -54,6 +59,9 @@ class App extends React.Component {
                             <Route path="/home" element={<Home></Home>}/>
                             <Route path="/budget" element={<Budget></Budget>}/>
                             <Route path="/ledger" element={<Ledger></Ledger>}/>
+                            <Route path="/ledger2" element={<Ledger2></Ledger2>}/>
+                            <Route path="/ledgerExpense" element={<LedgerExpense></LedgerExpense>}/>
+                            <Route path="/ledgerDeposit" element={<LedgerDeposit></LedgerDeposit>}/>
                         </Routes>
                     </div>
                     

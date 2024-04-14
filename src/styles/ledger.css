@@ -21,9 +21,61 @@
     flex-direction: row;
 
 }
-.row div{
+#title-row div{
+    background-color: #88aded;
+}
+.title{
+    background-color: #88aded;
+}
+.row-inner{
     border: 1px solid;
+    display: flex;
+    flex-direction: column;
     width: 300px;
+    height: 80px;
     padding: 10px;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.deposit, .expense, .date {
+    /*background-color: #c9daf8;*/
+}
+.row-inner-inner{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/*.row-inner{
+    flex-direction: row;
+}*/
+
+.note{
+    font-size: 12px;
+}
+
+.expense{
+    position: relative;
+}
+
+.leftover-div{
+    /*border: 1px solid red;*/
+    width: 33%;
+    height: 20px;
+    position: absolute;
+    bottom:0;
+    right:0;
+    color: grey;
+}
+
+p{
+    font-size: 16px;
+}
+input{
+    font-size: 16px;
+    height: 40px;
+    width: 75%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #c9daf8;
 }
