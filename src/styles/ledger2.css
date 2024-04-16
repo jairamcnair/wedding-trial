@@ -92,3 +92,19 @@ input{
     height: 100%;
     padding: 10px;
 }
+
+/* RADIO BUTTON COMPONENT */
+.diy-radio-container{
+    border: 1px solid lightgray;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+
+.diy-radio{  /* the toggle*/
+    width: 100%;
+    height: 100%;
+    background-color: greenyellow;
+    border-radius: 50px;
+}
+
