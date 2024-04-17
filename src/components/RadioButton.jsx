@@ -1,93 +1,63 @@
 import "./../styles/ledger2.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {useState, useEffect} from 'react';
 import { useRef } from 'react';
+import { useId } from 'react';
 //import Budget from './Budget'
 
+// source for persist checkboxes - https://www.sitepoint.com/quick-tip-persist-checkbox-checked-state-after-page-reload/ 
+// source: style checkboxes - https://sentry.io/answers/how-to-style-a-checkbox-using-css/ 
 
 const RadioButton = () => {
-
-  // source: https://www.freecodecamp.org/news/toggle-elements-in-react-using-hooks/ - toggling
+    const [checked, setChecked] = useState(() => {
+      const saved = localStorage.getItem("checked"); 
+      const initialValue = JSON.parse(saved); return initialValue || "";
+      }
+  ); useEffect(() => {localStorage.setItem('checked', JSON.stringify(checked));},[checked]);
+    
   
-
-  const [color, setColor] = useState(() => {
-    const saved = localStorage.getItem("color"); 
-    const initialValue = JSON.parse(saved); return initialValue || "";
-    }
-  );
-  useEffect(() => {localStorage.setItem('color', JSON.stringify(color));},[color]);
-
-  const [click, setClick] = useState(() => {
-    const saved = localStorage.getItem("click"); 
-    const initialValue = JSON.parse(saved); return initialValue || "";
-    }
-  );
-  useEffect(() => {localStorage.setItem('click', JSON.stringify(click));},[click]);
-
-  let ref = useRef(0); // source: https://react.dev/reference/react/useRef
-
-  function handleClick(e){
-    ref.current = ref.current + 1;
-        if(ref.current % 2 === 0){
-          console.log("clicks -" + ref.current)
-          setColor('white')
-          setClick(ref.current)
-          e.target.style.backgroundColor = color //evt.target.style.visibility = "hidden"; - source: https://developer.mozilla.org/en-US/docs/Web/API/Event/target
-        }
-        else{
-          setColor('red')
-          setClick(ref.current)
-          console.log("clicks -" + ref.current)
-          e.target.style.backgroundColor = color;
-        }
-    }
-   
-
-  /*
-      const [radioId, setRadioId] = useState(() => {
-        const saved = localStorage.getItem("radioId"); 
-        const initialValue = JSON.parse(saved); return initialValue || "";
-        }
-      );useEffect(() => {localStorage.setItem('radioId', JSON.stringify(radioId));},[radioId]);
-
-    const [color, setColor] = useState("") 
-    useEffect(() => {localStorage.setItem('color', JSON.stringify(color));},[color]);
-
-    const [toggle, setToggle] = useState(() => {
-      const saved = localStorage.getItem("toggle"); 
-      const initialValue = JSON.parse(saved); return initialValue || "";
+  const [style, setStyle] = useState(() => {
+      const saved = localStorage.getItem("style"); 
+      const initialValue = JSON.parse(saved); return initialValue || "light";
       }
-    );useEffect(() => {localStorage.setItem('toggle', JSON.stringify(toggle));},[toggle]);
-    /*const handleClick = () => {
-      setToggle(!toggle);
-      console.log(toggle)
-    };*/
-    /*const [toggle, setToggle] = useState(() => {
-      const saved = localStorage.getItem("toggle"); 
-      const initialValue = JSON.parse(saved); return initialValue || "";
-      }
-    );useEffect(() => {localStorage.setItem('toggle', JSON.stringify(toggle));},[toggle]);
-    function handleClick(event){
-      setToggle(!toggle)
-    }*/
+  );useEffect(() => {localStorage.setItem('style', JSON.stringify(style));},[style]);
 
+    
+  function getId(){
+      const id = useId()
+      return id
+    }
+
+    
+    function handleChange(id, e){
+      console.log("you clicked input - " + id)
+      if(checked === 'true'){
+        setChecked('false')
+        console.log(checked)
+        localStorage.setItem('checked', 'false');
+        setStyle("dark");
+      }
+      if(checked === 'false'){
+        setChecked('true')
+        console.log(checked)
+        localStorage.setItem('checked', 'true');
+        setStyle("light");
+      }
+    }
 
     return (
       <>
-        <div className="diy-radio-container" onClick={handleClick} id={Math.floor(Math.random() * 100) + 1}>
-         
-              <div 
-              className="diy-radio" 
-              id = {Math.floor(Math.random() * 100) + 1 } 
-              >
-            </div>
-        
-        </div>
+        <input
+          className={style}
+          type="checkbox"
+          id = {getId()}
+          onChange = {(e) => handleChange(e.target.id, e)}
+        />
       </>
     )
   }
-
 export default RadioButton;
 
-/* 
 
-*/
+

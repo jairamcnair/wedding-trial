@@ -1,6 +1,7 @@
 import "./../styles/ledger2.css";
 import {useState, useEffect} from 'react';
 //import Budget from './Budget'
+import RadioButton2 from './RadioButton2'
 import RadioButton from './RadioButton'
 
 function Ledger2(){ // expense component - add this when the user clicks the "add expense" button
@@ -58,7 +59,6 @@ function Ledger2(){ // expense component - add this when the user clicks the "ad
                     </div>
                 </div>
             </div>
-            <RadioButton/>
         </>
     )
 }

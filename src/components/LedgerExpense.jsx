@@ -4,7 +4,6 @@ import {useState, useEffect} from 'react';
 
 function LedgerExpense(){ // expense component - add this when the user clicks the "add expense" button
 
-    
     return(
         <>
             <div id="container">
@@ -12,7 +11,7 @@ function LedgerExpense(){ // expense component - add this when the user clicks t
                     <div className="row-inner-inner"> 
                         <input
                             className="radio-input"
-                            type="radio"
+                            type="checkbox"
                         />
                     </div>
                 </div>
